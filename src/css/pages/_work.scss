@@ -24,7 +24,7 @@
             transition: all .3s ease-in-out;
             & p+p {
                 border: 1px solid white;
-                padding: 3px 10px;
+                padding: 8px 10px;
                 padding-right: 40px;
                 border-radius: 25px;
                 position: relative;
@@ -48,7 +48,7 @@
                     height: 26px;
                     position: absolute;
                     right: 6px;
-                    top: 4px;
+                    top: 9px;
                     transition: transform .2s ease-in-out;
                     display: flex;
                     justify-content: center;

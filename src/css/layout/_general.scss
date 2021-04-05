@@ -58,14 +58,16 @@ header{
                 height: 80px;
                 line-height: 80px;
                 font-size: 33px;
-                color: #707070;
-                border: 4px solid transparent;
-                background-color:white;
-                transition: all 0.7s ease-in-out;
+                // color: #707070;
+                color: white;
+                border: 4px solid white;
+                // background-color:white;
+                box-shadow: inset 0px 0 0 0.01px white;
+                transition: all 0.5s ease-in-out;
                 &.current-menu-item.newPageItem {
-                    background-color:#3F5866;
-                    border: 4px solid white;
-                    color:white;
+                    // background-color:#3F5866;
+                    box-shadow: inset 370px 0 0 0 white;
+                    color: #707070;
                 }
             }
         }
