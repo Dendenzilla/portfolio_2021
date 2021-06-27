@@ -1,0 +1,38 @@
+.timeline {
+    // width: 900px;
+}
+.project {
+    display:flex;
+    flex-wrap:nowrap;
+    flex-direction:row;
+    
+}
+.year{
+    border-right: 2px solid #43687C;
+    padding: 7px 20px 0 10px;
+    position:relative;
+    min-width:100px;
+    & p{
+        color:$text-color;
+        font-weight: bold;
+        margin:0;
+        font-size: 30px;
+    }
+    &::after{
+        content:'';
+        position:absolute;
+        width:20px;
+        height:20px;
+        right:-11px;
+        top:12px;
+        border-radius:50%;
+        background-color:#43687C;
+    }
+}
+.txt {
+    padding-left:20px;
+    & p {
+        color:#707070;
+        font-size: 20px;
+    }
+}
