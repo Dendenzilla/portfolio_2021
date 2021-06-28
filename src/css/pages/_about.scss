@@ -28,6 +28,13 @@
         border-radius:50%;
         background-color:#43687C;
     }
+    &.dotted{
+        border-right: 2px dashed $text-color;
+        min-height: 40px;
+        &:first-of-type::after{
+            content: none;
+            }
+    }
 }
 .txt {
     padding-left:20px;
