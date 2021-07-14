@@ -12,6 +12,11 @@ if(( window.location.href !== 'http://localhost:3000/index.html' ) && ( window.l
     setTimeout(function(){ 
         var nextHeader= $('li.current-menu-item').text();
         $('.link-home span.submenu').text(nextHeader);
+        if ($('#tw').length) { 
+            var workHeader= $('#tw').text();
+            $('.link-home span.submenu').text(workHeader);
+            console.log('work header added');
+        }
         $('.link-home span.submenu').removeClass('loading');
     }, 500);
     $( document ).ready(function() {
