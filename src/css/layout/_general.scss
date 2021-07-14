@@ -11,8 +11,10 @@ a {
 }
 h1 {
     font-size: 50px;
+    font-size: clamp(1rem, 10vw, 60px);
     color: white;
     margin-bottom: 0;
+    word-break: break-all;
 }
 h3{
     margin:0;
@@ -43,9 +45,9 @@ header{
     &.page-header {
         width: 450px;
         height: auto;
-        // background-color:#374d5a;
         background-color:#3F5866;
         padding: 100px 20px;
+        z-index: 9;
         & .menu-container{
             height: auto;
             padding-top: 100px;
@@ -92,6 +94,7 @@ header{
 li {
     color:white;
     letter-spacing: 20px;
+    text-indent: 10px;
     text-transform: uppercase;
     & a {
         height: 100%;
@@ -133,7 +136,7 @@ li {
 .page-loader-main {
     height: 100%;
     position: absolute;
-    z-index: 99;
+    z-index: 9;
     left: 450px;
     top: 0;
     width: calc( 10% - 450px );
@@ -182,16 +185,16 @@ span.submenu.loading{
     // text-transform: uppercase;
     width: 100%; 
 }  
-.btn-home {
+.main-menu a {
     background: lighten($red, 3%);  
     border: 1px solid darken($red, 4%);
     box-shadow: 0px 2px 0 darken($red, 5%), 2px 4px 6px darken($red, 2%);
     font-weight: 900;
     // letter-spacing: 1px;
     transition: all 150ms linear;
-  }
-  
-  .btn-home:hover {
+}
+
+.main-menu a:hover {
     background: darken($red, 1.5%);
     border: 1px solid rgba(#000, .05);
     // box-shadow: 1px 1px 2px rgba(#fff, .2);
@@ -199,4 +202,224 @@ span.submenu.loading{
     text-decoration: none;
     text-shadow: -1px -1px 0 darken($red, 9.5%);
     transition: all 250ms linear;
-  }
+}
+// BURGER CSS
+#nav-icon2{
+    width: 60px;
+    height: 45px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+#nav-icon2 span {
+    display: block;
+    position: absolute;
+    height: 6px;
+    width: 50%;
+    background: white;
+    opacity: 1;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+#nav-icon2 span:nth-child(even) {
+    left: 50%;
+    border-radius: 0 9px 9px 0;
+}
+
+#nav-icon2 span:nth-child(odd) {
+    left:0px;
+    border-radius: 9px 0 0 9px;
+}
+
+#nav-icon2 span:nth-child(1), #nav-icon2 span:nth-child(2) {
+    top: 0px;
+}
+
+#nav-icon2 span:nth-child(3), #nav-icon2 span:nth-child(4) {
+    top: 18px;
+}
+
+#nav-icon2 span:nth-child(5), #nav-icon2 span:nth-child(6) {
+    top: 36px;
+}
+
+#nav-icon2.open span:nth-child(1),#nav-icon2.open span:nth-child(6) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#nav-icon2.open span:nth-child(2),#nav-icon2.open span:nth-child(5) {
+-webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+#nav-icon2.open span:nth-child(1) {
+    left: 5px;
+    top: 7px;
+}
+
+#nav-icon2.open span:nth-child(2) {
+    left: calc(50% - 5px);
+    top: 7px;
+}
+
+#nav-icon2.open span:nth-child(3) {
+    left: -50%;
+    opacity: 0;
+}
+
+#nav-icon2.open span:nth-child(4) {
+    left: 100%;
+    opacity: 0;
+}
+
+#nav-icon2.open span:nth-child(5) {
+    left: 5px;
+    top: 29px;
+}
+
+#nav-icon2.open span:nth-child(6) {
+    left: calc(50% - 5px);
+    top: 29px;
+}
+.burger {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 4px;
+    font-size: 32px;
+    color: white;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    p {
+        font-size: 18px;
+    }
+    h1{
+        margin-top: 0;
+    }
+    header{
+        & p {
+            font-size: 16px;
+            &+p {
+                font-size: 30px;
+            }
+        }
+        // FOR ALL PAGES EXCEPT HOMEPAGE
+        &.page-header {
+            width: 100%;
+            height: 75px;
+            overflow: hidden;
+            padding: 10px 10px;
+            position: fixed;
+            transition: all 150ms linear;
+            &.opened{
+                height: 100%;
+            }
+            & .menu-container{
+                height: auto;
+                padding-top: 70px;
+            }
+            & p{
+                font-size: 16px;
+                &+p {
+                    font-size: 22px;
+                }
+            }
+            & ul.menu {
+                width: 100%;
+                margin: auto;
+                & li {
+                    width: 100%;
+                    max-width: 370px;
+                    height: 80px;
+                    line-height: 80px;
+                    font-size: 33px;
+                }
+            }
+        }
+    }
+    .sticky-menu {
+        position: relative;
+        top: 10px;
+    }
+    main {
+        width: 100%;
+        padding: 10px;
+    }
+    .container{
+        &.half {
+            padding-top: 10px;
+        }
+    }
+    .burger {
+        display: block;
+    }
+    .container {
+        margin-top: 80px;
+        width: 100%;
+    }
+    .page-loader-base{
+        &.top-right {
+            top: -250px;
+            right: -250px;
+        }
+        &.bottom-left{
+            bottom: -250px;
+            left: -250px;
+            &.loaded {
+                display: none;
+            }
+        }
+        &.loading {
+            width: 250vw;
+            height: 250vw;
+        }
+    }
+    .page-loader-main {
+        height: 0;
+        position: absolute;
+        z-index: 8;
+        left: 0px;
+        top: 0;
+        width: 100%;
+        background-color: #3f5866;
+        transition: all .5s ease-in-out;
+        &.loading {
+            height: 100%;
+        }
+        &.loaded{
+            width: 100%;
+            height: 100%;
+            transition: none;
+        }
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}

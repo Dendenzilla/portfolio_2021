@@ -38,8 +38,7 @@ $( document ).ready(function() {
         return false;
     });
     // WHEN SWITCHING BETWEEN MENUS
-    $('a.page-loader-scdn').click(function(){
-        console.log("t");
+    $('.pages-menu a').click(function(){
         $('li.current-menu-item').removeClass('newPageItem');
         $('.link-home span.submenu').text('loading').addClass('loading');
         $('.page-loader-main').addClass('loading');
@@ -49,5 +48,13 @@ $( document ).ready(function() {
         setTimeout(function() {window.location = href}, 600);
         return false;
     });
+    $('.window a.page-loader-scdn').click(function(){
+        $('.link-home span.submenu').text('loading').addClass('loading');
+    });
     
+});
+
+$('.burger').click(function(){
+    $(".page-header").toggleClass('opened');
+    $('#nav-icon2').toggleClass('open');
 });

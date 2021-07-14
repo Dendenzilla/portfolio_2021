@@ -1,11 +1,14 @@
 .technos{
-    display: flex;
     & p{
-        font-size: 18px;
+        display: inline;
+        font-size: 14px;
         color: #4F6875;
         & span {
             color: white;
             padding-right: 5px;
         }
     }
+}
+span#tw {
+    display: none;
 }
