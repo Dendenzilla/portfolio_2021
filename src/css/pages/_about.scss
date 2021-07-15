@@ -1,41 +1,17 @@
-.timeline {
-    // width: 900px;
-}
 .project {
     display:flex;
     flex-wrap:nowrap;
     flex-direction:row;
-    
-}
-.year{
-    border-right: 2px solid #43687C;
-    padding: 7px 20px 0 10px;
-    position:relative;
-    min-width:100px;
-    & p{
-        color:$text-color;
-        font-weight: bold;
-        margin:0;
-        font-size: 30px;
-    }
-    &::after{
-        content:'';
-        position:absolute;
-        width:20px;
-        height:20px;
-        right:-11px;
-        top:12px;
-        border-radius:50%;
-        background-color:#43687C;
-    }
-    &.dotted{
+    & .dotted{
         border-right: 2px dashed $text-color;
         min-height: 40px;
+        margin-left: 97px;
         &:first-of-type::after{
             content: none;
             }
     }
 }
+
 .txt {
     padding-left:20px;
     & p {
@@ -43,15 +19,52 @@
         font-size: 20px;
     }
 }
+.yp {
+    display: flex;
+    & .project .year{
+        border-right: 2px solid #43687C;
+        padding: 7px 20px 0 10px;
+        position:relative;
+        width: 0;
+        &::after{
+            content:'';
+            position:absolute;
+            width:20px;
+            height:20px;
+            right:-11px;
+            top:12px;
+            border-radius:50%;
+            background-color:#43687C;
+        }
+    }
+    & .year p{
+        color:$text-color;
+        font-weight: bold;
+        margin:0;
+        margin-top: 5px;
+        font-size: 30px;
+        position: sticky;
+        top: 20px;
+    }
+}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-    .year{
-        min-width: 30px;
-        padding: 32px 0px 0 0;
-        & p{
+    .yp{
+        & .project .year{
+            min-width: 35px;
+            padding: 12px 0px 0 0;
+        }
+        & .year p{
             writing-mode: vertical-rl;
             text-orientation: upright;
             font-size: 20px;
+            top: 100px;
+            margin-top: -15px;
+        }
+    }
+    .project {
+        & .dotted{
+            margin-left: 56px;
         }
     }
 }

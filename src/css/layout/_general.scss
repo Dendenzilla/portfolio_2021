@@ -1,6 +1,9 @@
 body {
     background-color: $primary-color;
 }
+body.burger-menu{
+    overflow: hidden;
+}
 p { 
     color: white;
     font-size: 24px;
@@ -73,7 +76,7 @@ header{
                 // background-color:white;
                 box-shadow: inset 0px 0 0 0.01px white;
                 transition: all 0.5s ease-in-out;
-                &.current-menu-item.newPageItem {
+                &.newPageItem {
                     // background-color:#3F5866;
                     box-shadow: inset 370px 0 0 0 white;
                     color: #707070;
@@ -94,7 +97,7 @@ header{
 li {
     color:white;
     letter-spacing: 20px;
-    text-indent: 10px;
+    text-indent: 15px;
     text-transform: uppercase;
     & a {
         height: 100%;
@@ -112,7 +115,7 @@ li {
     position: fixed;
     background-color: $fx-color;
     z-index: 99;
-    transition:all .7s ease-in-out;
+    transition:all .9s ease-in-out;
     &.top-right {
         top: -500px;
         right: -500px;
@@ -162,6 +165,10 @@ main {
         padding-top: 100px;
     }
 }
+.center-text {
+    max-width: 900px;
+    margin: 0 auto 30px;
+}
 span.submenu.loading{
     animation: blinker 0.5s linear infinite;
 }
@@ -205,7 +212,7 @@ span.submenu.loading{
 }
 // BURGER CSS
 #nav-icon2{
-    width: 60px;
+    width: 40px;
     height: 45px;
     position: absolute;
     right: 0;
@@ -240,11 +247,11 @@ span.submenu.loading{
 }
 
 #nav-icon2 span:nth-child(3), #nav-icon2 span:nth-child(4) {
-    top: 18px;
+    top: 14px;
 }
 
 #nav-icon2 span:nth-child(5), #nav-icon2 span:nth-child(6) {
-    top: 36px;
+    top: 28px;
 }
 
 #nav-icon2.open span:nth-child(1),#nav-icon2.open span:nth-child(6) {
@@ -263,12 +270,12 @@ span.submenu.loading{
 
 #nav-icon2.open span:nth-child(1) {
     left: 5px;
-    top: 7px;
+    top: 10px;
 }
 
 #nav-icon2.open span:nth-child(2) {
     left: calc(50% - 5px);
-    top: 7px;
+    top: 10px;
 }
 
 #nav-icon2.open span:nth-child(3) {
@@ -283,12 +290,12 @@ span.submenu.loading{
 
 #nav-icon2.open span:nth-child(5) {
     left: 5px;
-    top: 29px;
+    top: 20px;
 }
 
 #nav-icon2.open span:nth-child(6) {
     left: calc(50% - 5px);
-    top: 29px;
+    top: 20px;
 }
 .burger {
     display: none;
@@ -320,7 +327,7 @@ span.submenu.loading{
             overflow: hidden;
             padding: 10px 10px;
             position: fixed;
-            transition: all 150ms linear;
+            transition: all .25s linear;
             &.opened{
                 height: 100%;
             }
@@ -393,12 +400,14 @@ span.submenu.loading{
         width: 100%;
         background-color: #3f5866;
         transition: all .5s ease-in-out;
+        visibility: hidden;
         &.loading {
             height: 100%;
         }
         &.loaded{
             width: 100%;
             height: 100%;
+            max-height: 100vh;
             transition: none;
         }
     }
