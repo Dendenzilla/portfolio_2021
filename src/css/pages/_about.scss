@@ -14,9 +14,11 @@
 
 .txt {
     padding-left:20px;
+    max-width: 80%;
     & p {
         color:#707070;
-        font-size: 20px;
+        font-size: 26px;
+        padding: 0 40px;
     }
 }
 .yp {
@@ -51,7 +53,7 @@
 @media only screen and (max-width: 600px) {
     .yp{
         & .project .year{
-            min-width: 35px;
+            min-width: 15px;
             padding: 12px 0px 0 0;
         }
         & .year p{
@@ -59,19 +61,50 @@
             text-orientation: upright;
             font-size: 20px;
             top: 100px;
-            margin-top: -15px;
+            margin-top: 10px;
         }
     }
     .project {
         & .dotted{
-            margin-left: 56px;
+            margin-left: 36px;
+        }
+    }
+    .txt {
+        max-width: 90%;
+        & p {
+            font-size: 26px;
+            padding: 0px 20px;
         }
     }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-
+@media only screen and (min-width: 600px) and (max-width: 1000px) {
+    .yp{
+        & .project .year{
+            min-width: 15px;
+            padding: 12px 0px 0 0;
+        }
+        & .year p{
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            font-size: 20px;
+            top: 100px;
+            margin-top: 10px;
+        }
+    }
+    .project {
+        & .dotted{
+            margin-left: 36px;
+        }
+    }
+    .txt {
+        max-width: 90%;
+        & p {
+            font-size: 26px;
+            padding: 0px 20px;
+        }
+    }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */

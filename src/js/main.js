@@ -21,11 +21,13 @@ if(( window.location.href !== 'https://dekube.be/' ) && ( window.location.href !
     }, 500);
     $( document ).ready(function() {
         $('li.current-menu-item').addClass('newPageItem');
+        // WAS ADDED TO REMOVE LOADER WHEN ENTERING THE SITE ON A MENU PAGE
+        $('.page-loader-main').removeClass('loaded');
     });
 }
 // Closing the main page loader on page load and opening it imemdiatly
 // Taken out of the "doc.ready" fct so there's no blink during which user can see the main area
-// first if so that when coming from home the menu loader is finished when the orange loader start
+// first "if" so that when coming from home the menu loader is finished when the orange loader start
 if ((document.referrer === 'https://dekube.be/') || (document.referrer === 'http://dekube.be/') || (document.referrer === 'http://localhost:3000/')){
     console.log('coming from home');
     // Start the page with the main loader opened (blocking the view)
@@ -41,6 +43,7 @@ if ((document.referrer === 'https://dekube.be/') || (document.referrer === 'http
     }, 50);
 }else if((sessionStorage.getItem("isOpen") == "True")){
     // Start the page with the main loader opened (blocking the view)
+    // Update, Main loader always starts opened
     $('.page-loader-main').addClass('loaded');
     $('.page-header').addClass('opened');
     setTimeout(function(){
@@ -52,7 +55,10 @@ if ((document.referrer === 'https://dekube.be/') || (document.referrer === 'http
         sessionStorage.setItem("isOpen", "False");
     }, 50);
 }else{
-    $('.page-header').removeClass('opened');
+    // WHEN LANDING DIRECTLY ON A MENU PAGE ON MOBILE WE DELAY THE MENU REMOVAL
+    setTimeout(function(){
+        $('.page-header').removeClass('opened');
+    }, 500);
 }
 
 // APPLY THE MENU LI CLASS WHEN VIEWING A WINDOW
