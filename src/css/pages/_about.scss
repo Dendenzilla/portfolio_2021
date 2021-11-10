@@ -19,6 +19,9 @@
         color:#707070;
         font-size: 26px;
         padding: 0 40px;
+        & a {
+            color: $fx-color;
+        }
     }
 }
 .yp {
@@ -72,8 +75,8 @@
     .txt {
         max-width: 90%;
         & p {
-            font-size: 26px;
-            padding: 0px 20px;
+            font-size: 18px;
+            padding: 0px 10px;
         }
     }
 }

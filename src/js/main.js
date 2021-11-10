@@ -63,9 +63,11 @@ if ((document.referrer === 'https://dekube.be/') || (document.referrer === 'http
 
 // APPLY THE MENU LI CLASS WHEN VIEWING A WINDOW
 if ((sessionStorage.getItem("windowOpen") == "True")){
+    $( document ).ready(function() {
     console.log("windowopened");
     $('ul.menu li:first').addClass('newPageItem');
-    sessionStorage.setItem("windowOpen", "False");
+    console.log('y');
+    });
 }
 
 $( document ).ready(function() {
@@ -84,6 +86,7 @@ $( document ).ready(function() {
         $('.link-home span.submenu').text('loading').addClass('loading');
         $('.page-loader-main').addClass('loading');
         sessionStorage.setItem("isOpen", "True");
+        sessionStorage.setItem("windowOpen", "False");
         var href = $(this).attr('href');
         // Delay setting the location for one second
         setTimeout(function() {window.location = href}, 600);

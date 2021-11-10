@@ -7,6 +7,9 @@ body.burger-menu{
 p { 
     color: white;
     font-size: 24px;
+    & a{
+        color: $fx-color;
+    }
 }
 a {
     color:inherit;
@@ -14,7 +17,7 @@ a {
 }
 h1 {
     font-size: 50px;
-    font-size: clamp(1rem, 10vw, 60px);
+    font-size: clamp(1rem, 8vw, 60px);
     color: white;
     margin-bottom: 0;
     word-break: break-all;
@@ -36,6 +39,9 @@ h3{
     top: 100px;
 }
 header{
+    & .name_cont {
+        width: fit-content;
+    }
     & p {
         font-size: 26px;
         margin: 0;
@@ -106,8 +112,8 @@ li {
 
 // ANIMATION DE LOADING ENTRE LA HOME ET LES MENUS
 .page-loader-base{
-    width: 10px;
-    height: 10px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     
     display: block;
@@ -116,19 +122,18 @@ li {
     z-index: 99;
     transition:all .9s ease-in-out;
     &.top-right {
-        top: -500px;
-        right: -500px;
+        top: -50px;
+        right: -50px;
     }
     &.bottom-left{
-        bottom: -500px;
-        left: -500px;
+        bottom: -50px;
+        left: -50px;
         &.loaded {
             display: none;
         }
     }
     &.loading {
-        width: 150vw;
-        height: 150vw;
+        transform:scale(120);
     }
 }
 
@@ -161,7 +166,7 @@ main {
 }
 .container{
     &.half {
-        padding-top: 100px;
+        padding-top: 5vh;
     }
 }
 .center-text {
@@ -213,9 +218,9 @@ span.submenu.loading{
 #nav-icon2{
     width: 40px;
     height: 45px;
-    position: absolute;
-    right: 0;
-    top: 0;
+    position: fixed;
+    right: 20px;
+    top: 22px;
     transform: rotate(0deg);
     transition: .5s ease-in-out;
     cursor: pointer;
@@ -312,6 +317,10 @@ span.submenu.loading{
     h1{
         margin-top: 0;
     }
+    h3 {
+        padding-top: 10px;
+        font-size: 22px;
+    }
     header{
         & p {
             font-size: 16px;
@@ -369,25 +378,48 @@ span.submenu.loading{
     .burger {
         display: block;
     }
+    #nav-icon2{
+        width: 30px;
+        height: 25px;
+        top: 35px;
+    }
+    #nav-icon2 span:nth-child(3), #nav-icon2 span:nth-child(4) {
+        top: 10px;
+    }
+    #nav-icon2 span:nth-child(5), #nav-icon2 span:nth-child(6) {
+        top: 20px;
+    }
+    #nav-icon2 span {
+        height: 4px;
+    }
+    #nav-icon2.open span:nth-child(1) {
+        left: 3px;
+        top: 7px;
+    }
+    #nav-icon2.open span:nth-child(2) {
+        left: calc(50% - 3px);
+        top: 7px;
+    }
+    #nav-icon2.open span:nth-child(5) {
+        left: 3px;
+        top: 17px;
+    }
+    #nav-icon2.open span:nth-child(6) {
+        left: calc(50% - 3px);
+        top: 17px;
+    }
     .container {
         margin-top: 80px;
         width: 100%;
     }
     .page-loader-base{
-        &.top-right {
-            top: -250px;
-            right: -250px;
+        &.loading {
+            transform:scale(50);
         }
         &.bottom-left{
-            bottom: -250px;
-            left: -250px;
             &.loaded {
                 display: none;
             }
-        }
-        &.loading {
-            width: 250vw;
-            height: 250vw;
         }
     }
     .page-loader-main {
@@ -472,7 +504,7 @@ span.submenu.loading{
     }
     .container{
         &.half {
-            padding-top: 10px;
+            padding-top: 2vh;
         }
     }
     .burger {
@@ -483,20 +515,13 @@ span.submenu.loading{
         width: 100%;
     }
     .page-loader-base{
-        &.top-right {
-            top: -250px;
-            right: -250px;
-        }
         &.bottom-left{
-            bottom: -250px;
-            left: -250px;
             &.loaded {
                 display: none;
             }
         }
         &.loading {
-            width: 250vw;
-            height: 250vw;
+            transform:scale(70);
         }
     }
     .page-loader-main {
@@ -520,15 +545,43 @@ span.submenu.loading{
         }
     }
 }
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-
+@media only screen and (min-width: 1000px) and (max-width: 1300px) {
+    .sticky-menu {
+        top: 10vh;
+    }
+    header{
+        // FOR ALL PAGES EXCEPT HOMEPAGE
+        &.page-header {
+            width: 350px;
+            padding: 50px 10px;
+            & p {
+                font-size: 1rem;
+                &+p {
+                    font-size: 1.5rem;
+                }
+            }
+            & ul.menu {
+                width: 270px;
+                & li {
+                    width: 270px;
+                    font-size: 23px;
+                }
+            }
+        }
+    }
+    main {
+        width: calc( 100% - 350px);
+    }
+    .page-loader-main {
+        left: 350px;
+        width: calc( 10% - 350px );
+        &.loading {
+            width: calc( 100% - 350px);
+        }
+        &.loaded{
+            width: calc( 100% - 350px);
+        }
+    }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */

@@ -7,6 +7,11 @@ header.homepage-header {
     & p{
         color: #707070;
     }
+    & p:last-of-type{
+        color: $fx-color;
+        font-size: .7rem;
+        text-transform: none;
+    }
 }
 ul.menu {
     list-style: none;
@@ -64,6 +69,10 @@ ul.menu {
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-    
+@media only screen and (max-width: 1400px) {
+    header.homepage-header {
+        & div:first-of-type {
+            padding-top: 5vh;
+        }
+    }
 }
